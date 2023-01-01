@@ -43,13 +43,15 @@ cat ~/scripts/example.py
 
 Grant executable permission to the example.py script.
 
-```
+```bash
 sudo chmod o+wx ~/scripts/example.py
 ```
 
 Run the example.py script, which will generate mail to you.
 
+```bash
 ./scripts/example.py
+```
 
 A mail should now be successfully sent.
 
@@ -65,10 +67,13 @@ Output:
 
 41a28598157d4729.png
 
-Generate report
+### Generate report
+
 Now, let's make a couple of changes in the example.py file to add a new fruit and change the sender followed by granting editor permission. Open example.py file using the following command:
 
+```bash 
 nano ~/scripts/example.py
+```
 
 And update the following variables:
 
@@ -86,6 +91,7 @@ Add another entry into the list: ['kiwi', 4, 0.49]
 
 The file should now look similar to:
 
+```python
 #!/usr/bin/env python3
 import emails
 import os
@@ -107,12 +113,15 @@ subject = "List of Fruits"
 body = "Hi\n\nI'm sending an attachment with all my fruit."
 message = emails.generate(sender, receiver, subject, body, "/tmp/report.pdf")
 emails.send(message)
+```
 
 Once you've made the changes in the example.py script, save the file by typing Ctrl-o, Enter key and Ctrl-x.
 
 Now execute the example script again.
 
+```bash
 ./scripts/example.py
+```
 
 Now, check the webmail for any new mail. You can click on the Refresh button to refresh your inbox.
 
@@ -121,7 +130,7 @@ Now, check the webmail for any new mail. You can click on the Refresh button to 
 Click Check my progress to verify the objective.
 Generate sample report
 
-Sales summary
+### Sales summary
 In this section, let's view the summary of last month's sales for all the models offered by the company. This data is in a JSON file named car_sales.json. Let's have a look at it.
 
 cat car_sales.json
@@ -132,6 +141,7 @@ dccac1f426670528.png
 
 To simplify the JSON structure, here is an example of one of the JSON objects among the list.
 
+```json
 {
         "id": 47,
         "car": {
@@ -142,6 +152,7 @@ To simplify the JSON structure, here is an example of one of the JSON objects am
         "price": "$13724.05",
         "total_sales": 149
 }
+```
 
 Here id, car, price and total_sales are the field names (key).
 
@@ -155,10 +166,11 @@ Calculate the most popular car_year across all car make/models (in other words, 
 
 "The most popular year was {year} with {total sales in that year} sales."
 
-The challenge
+### The challenge
+
 Here, you are going to update the script cars.py. You will be using the above JSON data to process information. A part of the script is already done for you, where it calculates the car model with the most revenue (price * total_sales). You should now fulfil the following objectives with the script:
 
-Calculate the car model which had the most sales.
+- Calculate the car model which had the most sales.
 a. Call format_car method for the car model.
 
 Calculate the most popular car_year across all car make/models.
@@ -171,7 +183,8 @@ nano ~/scripts/cars.py
 
 The code is well commented including the TODO sections for you to understand and fulfill the objectives.
 
-Generate PDF and send Email
+### Generate PDF and send Email
+
 Once the data is collected, you will also need to further update the script to generate a PDF report and automatically send it through email.
 
 To generate a PDF:
@@ -188,37 +201,10 @@ A table which contains all the information parsed from the JSON file, organised 
 Note: You can use the cars_dict_to_table function for the above task.
 Example:
 
-ID
-
-Car
-
-Price
-
-Total Sales
-
-47
-
-Acura TL (2007)
-
-€14459,15
-
-1192
-
-73
-
-Porsche 911 (2010)
-
-€6057,74
-
-882
-
-85
-
-Mercury Sable (2005)
-
-€45660,46
-
-874
+| ID | Car | Price | Total Sales |
+| 47 | Acura TL (2007) | €14459,15 | 1192 |
+| 73 | Porsche 911 (2010) | €6057,74 | 882 |
+| 85 | Mercury Sable (2005) | €45660,46 | 874 |
 
 To send the PDF through email:
 
@@ -226,11 +212,11 @@ Once the PDF is generated, you need to send the email, using the emails.generate
 
 Use the following details to pass the parameters to emails.generate():
 
-From: automation@example.com
-To: <user>@example.com
-Subject line: Sales summary for last month
-E-mail Body: The same summary from the PDF, but using \n between the lines
-Attachment: Attach the PDF path i.e. generated in the previous step
+- From: automation@example.com
+- To: <user>@example.com
+- Subject line: Sales summary for last month
+- E-mail Body: The same summary from the PDF, but using \n between the lines
+- Attachment: Attach the PDF path i.e. generated in the previous step
 Once you have completed editing cars.py script, save the file by typing Ctrl-o, Enter key, and Ctrl-x.
 
 Run the cars.py script, which will generate mail to their user.
