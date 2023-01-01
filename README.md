@@ -50,7 +50,7 @@ sudo chmod o+wx ~/scripts/example.py
 Run the example.py script, which will generate mail to you.
 
 ./scripts/example.py
-Copied!
+
 A mail should now be successfully sent.
 
 Copy the external IP address of your instance from the Connection Details Panel on the left side and open a new web browser tab and enter the IP address. The Roundcube Webmail login page appears.
@@ -69,7 +69,7 @@ Generate report
 Now, let's make a couple of changes in the example.py file to add a new fruit and change the sender followed by granting editor permission. Open example.py file using the following command:
 
 nano ~/scripts/example.py
-Copied!
+
 And update the following variables:
 
 variable_name
@@ -107,13 +107,13 @@ subject = "List of Fruits"
 body = "Hi\n\nI'm sending an attachment with all my fruit."
 message = emails.generate(sender, receiver, subject, body, "/tmp/report.pdf")
 emails.send(message)
-Copied!
+
 Once you've made the changes in the example.py script, save the file by typing Ctrl-o, Enter key and Ctrl-x.
 
 Now execute the example script again.
 
 ./scripts/example.py
-Copied!
+
 Now, check the webmail for any new mail. You can click on the Refresh button to refresh your inbox.
 
 6f55d4c2f3ad0c4.png
@@ -125,7 +125,7 @@ Sales summary
 In this section, let's view the summary of last month's sales for all the models offered by the company. This data is in a JSON file named car_sales.json. Let's have a look at it.
 
 cat car_sales.json
-Copied!
+
 Output:
 
 dccac1f426670528.png
@@ -142,7 +142,7 @@ To simplify the JSON structure, here is an example of one of the JSON objects am
         "price": "$13724.05",
         "total_sales": 149
 }
-Copied!
+
 Here id, car, price and total_sales are the field names (key).
 
 The script cars.py already contains part of the work, but learners need to complete the task by writing the remaining pieces. The script already calculates the car model with the most revenue (price * total_sales) in the process_data method. Learners need to add the following:
@@ -166,9 +166,9 @@ Hint: Find the total count of cars with the car_year equal to 2005, equal to 200
 Grant required permissions to the file cars.py and open it using nano editor.
 
 sudo chmod o+wx ~/scripts/cars.py
-Copied!
+
 nano ~/scripts/cars.py
-Copied!
+
 The code is well commented including the TODO sections for you to understand and fulfill the objectives.
 
 Generate PDF and send Email
@@ -236,7 +236,7 @@ Once you have completed editing cars.py script, save the file by typing Ctrl-o, 
 Run the cars.py script, which will generate mail to their user.
 
 ./scripts/cars.py
-Copied!
+
 Now, check the webmail for any new mail. You can click on the Refresh button to refresh your inbox.
 
 Output:
