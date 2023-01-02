@@ -66,6 +66,7 @@ def cars_dict_to_table(car_data):
 def main(argv):
   """Process the JSON data and generate a full report out of it."""
   data = load_data("car_sales.json")
+  data.sort(key=lambda x: x["total_sales"])
   summary = process_data(data)
   # print(summary[0])
   # print(summary[0].replace('<br/>', '\n'))
